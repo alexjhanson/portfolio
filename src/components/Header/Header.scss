@@ -1,0 +1,69 @@
+@import '../../theme.scss';
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+.navigation {
+
+    grid-column: 2;
+
+    &__links {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        padding: 1rem;
+        color: $accent-orange;
+    }
+
+    &__link {
+        margin: 0 .5rem;
+        font-size: 2.5rem;
+        padding: 1rem;
+        border-radius: 3px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        transition: all .5s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $accent-orange;
+            color: $bg-color;
+        }
+
+    }
+}
+
+.social{
+
+    grid-column: 3;
+
+    &__links {
+        display: flex;
+        list-style: none;
+        justify-content: flex-end;
+        padding: 1rem;
+
+        & li:last-of-type {
+            margin-right: 8rem;
+        }
+    }
+
+    &__link {
+        margin: 0 2rem;
+    } 
+
+    &__icon {
+        width: 4rem;
+        height: 4rem;
+        fill: $accent-blue;
+    }
+}
+
+.navigation__links .active {
+    background-color: $accent-orange;
+    color: $bg-color;
+}

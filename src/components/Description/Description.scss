@@ -1,0 +1,40 @@
+.project-detail {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 6rem;
+    padding-bottom: 2rem;
+
+    &__line-rule {
+        grid-column: 1/-1;
+        margin-bottom: 2rem;
+    }
+
+    &__description {
+        font-size: 2rem;
+        padding-left: 2rem;
+        text-align: justify;
+        
+    }
+
+    &__tools {
+        display: flex;
+        flex-direction: column;
+
+        & > h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        & > ul {
+            list-style: none;
+            display: flex;
+
+            & li {
+                margin: 1rem;
+                font-size: 2rem;
+            }
+        }
+    }
+
+}
