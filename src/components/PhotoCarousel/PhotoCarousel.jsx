@@ -14,7 +14,6 @@ export default function PhotoCarousel(props) {
         intervalId: null,
     });
 
-    // eslint-disable-next-line
     useEffect(() => {
         let tmp = {...state};
         if(tmp.intervalId) {
@@ -24,7 +23,7 @@ export default function PhotoCarousel(props) {
         tmp.photoIndex = 1;
         setState(tmp);
         return () =>  clearInterval(tmp.intervalId);
-    }, [state.currentItem]);
+    }, [state.currentItem]); // eslint-disable-line react-hooks/exhaustive-deps
 
     function handleLeftClick() { 
         setState(state => {
