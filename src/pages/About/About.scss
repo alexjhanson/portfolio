@@ -13,7 +13,10 @@
 
 .intro {
 
+    
     padding:5rem;
+    margin-top:10rem;
+    border: 1px solid red;
 
     @media only screen and (min-width: 50em) {
         margin-bottom: 20rem;
@@ -37,6 +40,10 @@
         @media only screen and (max-width: 70em) { // 1120px   1rem = 8px
             font-size: 2.75rem;
          }
+
+         @media only screen and (max-width: 50em) { // 1120px   1rem = 8px
+            font-size: 3.5rem;
+         }
     }
 
     &__name {
@@ -44,6 +51,10 @@
 
         @media only screen and (max-width: 70em) { // 1120px   1rem = 8px
             font-size: 4rem;
+         }
+
+         @media only screen and (max-width: 50em) { // 1120px   1rem = 8px
+            font-size: 5.25rem;
          }
     }
 
@@ -57,7 +68,7 @@
          }
 
         @media only screen and (max-width: 50em) { 
-            font-size: 4rem;
+            font-size: 4.5rem;
         }
 
         > span {
@@ -85,7 +96,7 @@
              }
 
             @media only screen and (max-width: 50em) { //  800px  1rem = 6px
-                padding-left: 6rem;
+                padding-left: 5rem;
             }
         }
     }
@@ -138,7 +149,7 @@
          }
 
         @media only screen and (max-width: 50em) { //  800px  1rem = 6px
-            height: 70rem;
+            height: 73rem;
             width: 67rem;
         }
 
