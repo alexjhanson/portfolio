@@ -28,14 +28,14 @@ export default function App() {
   return (
     <div className="App">
       { mobile ? <MobileNav /> : <Header /> }
-      <div className="page-content">
+      
           <Routes>
             <Route path="/" element={<Navigate to='/about'/>}/>
             <Route path="/about" element={<About mobile={mobile} />}/>
             <Route path ="/projects" element={<Projects />}/>
           </Routes>
           { mobile ? <MobileSocial /> : null }
-      </div>
+    
     </div>
   );
 }
