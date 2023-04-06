@@ -1,0 +1,27 @@
+@import '../../theme.scss';
+
+.mobile-social {
+
+    padding-top: 1rem;
+    
+    &__links {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+
+    &__link {
+        margin: 1rem 3rem;
+    }
+
+    &__icon {
+        width: 8rem;
+        height: 8rem;
+        fill: $accent-blue;
+
+        @media only screen and (max-width: 50em) { //  800px  1rem = 6px
+            height: 7rem;
+            width: 7rem;
+        }
+    }
+}

@@ -8,7 +8,7 @@ import PROJECTS from '../../content/ProjectDefinitions';
 export default function Projects(props) {
 
     return (
-        <main className="page projects fade-in flex center-column">
+        <main className="page projects fade-in">
             <div className="project-container">
                 <PhotoCarousel items={PROJECTS} Description={Description}/>
             </div>

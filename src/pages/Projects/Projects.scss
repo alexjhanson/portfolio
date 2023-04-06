@@ -1,10 +1,12 @@
-
 .projects {
-    justify-content: flex-start;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 5rem;
 }
+
 
 .project-container {
     margin-top: 2.5rem;
-    width: 70%;
-   
+    width: 75%;
 }

@@ -1,0 +1,42 @@
+@import '../../theme.scss';
+
+.mobile-nav {
+
+    &__links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        list-style: none;
+        color: $primary-color;
+
+        & li {
+            font-size: 3.5rem;
+
+            @media only screen and (max-width: 50em) { //  800px  1rem = 6px
+                font-size: 3rem;
+            }
+        }
+
+        & > li:not(:last-child) {
+            border-right: 1px solid black;
+        }
+
+        border-bottom: 1px solid black;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 2rem 0;
+        font-weight: bold;
+        letter-spacing: 2px;
+        background-color: $accent-orange;
+
+        background-image: 
+                    linear-gradient(transparent 85%, darken($accent-orange, 10%) 95%, darken($accent-orange, 15%) 99%),
+                    linear-gradient(to right, transparent 95%, darken($accent-orange, 10%) 98%, darken($accent-orange, 15%) 99%),
+                    linear-gradient(to left, transparent 95%, darken($accent-orange, 10%) 98%, darken($accent-orange, 15%) 99%),
+                    linear-gradient(to top, transparent 88%, darken($accent-orange, 10%) 95%, darken($accent-orange, 15%) 99%); 
+    }
+}

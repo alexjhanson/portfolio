@@ -9,24 +9,26 @@ export default function Description(props) {
     return (
         <article className="project-detail">
             <hr className="project-detail__line-rule" />
-            <p className="project-detail__description">{description}</p>
-            <div className="project-detail__tools">
-                <h2>Frameworks / Libraries</h2>
-                <ul>
-                    {
-                        props.currentItem.techStack.map((el, i) => {
-                            return <li key={`tool-${i}`}>{el}</li>
-                        })
-                    }
-                </ul>
-                <h2>Languages</h2>
-                <ul>
-                    {
-                        props.currentItem.languages.map((el, i) => {
-                            return <li key={`tool-${i}`}>{el}</li>
-                        })
-                    }
-                </ul>
+            <div className="project-detail__text-container">
+                 <p className="project-detail__description">{description}</p>
+                <div className="project-detail__tools">
+                    <h2>Frameworks / Libraries</h2>
+                    <ul>
+                        {
+                            props.currentItem.techStack.map((el, i) => {
+                                return <li key={`tool-${i}`}>{el}</li>
+                            })
+                        }
+                    </ul>
+                    <h2>Languages</h2>
+                    <ul>
+                        {
+                            props.currentItem.languages.map((el, i) => {
+                                return <li key={`tool-${i}`}>{el}</li>
+                            })
+                        }
+                    </ul>
+                </div>
             </div>
         </article>
     )

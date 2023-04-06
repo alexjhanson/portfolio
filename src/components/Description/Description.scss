@@ -1,8 +1,5 @@
 .project-detail {
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 6rem;
     padding-bottom: 2rem;
 
     &__line-rule {
@@ -13,17 +10,37 @@
     &__description {
         font-size: 2rem;
         padding-left: 2rem;
-        text-align: justify;
+        padding-right: 8rem;
+        text-align: justify; 
         
+        @media only screen and (max-width: 50em) {
+            font-size: 2.75rem;
+        }
+    }
+
+    &__text-container {
+        display: flex;
+        justify-content: flex-end;
+
+        @media only screen and (max-width: 50em) {
+            flex-direction: column;
+        }
     }
 
     &__tools {
-        display: flex;
-        flex-direction: column;
+        width: fit-content;
+        margin-right: 2rem;
+        
+        @media only screen and (max-width: 50em) {
+            margin: 2rem 0 0 2rem;
+        }
 
         & > h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            @media only screen and (max-width: 50em) {
+                font-size: 3rem;
+            }
         }
 
         & > ul {
@@ -33,6 +50,10 @@
             & li {
                 margin: 1rem;
                 font-size: 2rem;
+
+                @media only screen and (max-width: 50em) {
+                    font-size: 2.75rem;
+                }
             }
         }
     }

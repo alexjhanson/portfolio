@@ -1,46 +1,95 @@
 @import '../../theme.scss';
 
 .about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+   
+    @media only screen and (min-width: 50em) { //  800px  
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width:fit-content;
+        margin: 0 auto;
+    }
 }
 
 .intro {
-    grid-column: 1 / 2;
-    height: 100%;
-    padding-left: 7rem;
-    align-items: flex-start;
 
+    padding:5rem;
+   
+    @media only screen and (min-width: 50em) {
+        margin-bottom: 20rem;
+        padding: 3.5rem 0 0 3.75rem;
+    }
+
+    @media only screen and (max-width: 70em) { 
+        align-self: flex-start;
+     }
+  
     & > * {
-        margin: .5rem;
+        margin: 1rem;
     }
 
     &__greeting {
         font-size: 3rem;
+        @media only screen and (max-width: 70em) { // 1120px   1rem = 8px
+            font-size: 2.75rem;
+         }
     }
 
     &__name {
-        font-size: 5rem;
+        font-size: 4.55rem;
+
+        @media only screen and (max-width: 70em) { // 1120px   1rem = 8px
+            font-size: 4rem;
+         }
     }
 
     &__role {
-        font-size: 3.5rem;
+
+        font-size: 3.35rem;
         font-weight: 300;
-        color: $accent-blue;
+
+        @media only screen and (max-width: 70em) { // 1120px   1rem = 8px
+            font-size: 3rem;
+         }
+
+        @media only screen and (max-width: 50em) { 
+            font-size: 4rem;
+        }
+
+        > span {
+            display: block;
+            color: $accent-blue;
+        }
 
         &--1{
-            padding-left: 5rem;
+            padding-left: 2.5rem;
+
+            @media only screen and (max-width: 70em) { // 1120px   1rem = 8px
+                padding-left: 1.5rem;
+             }
+           
+            @media only screen and (max-width: 50em) { //  800px  1rem = 6px
+                padding-left: 2rem;
+            }
         }
 
         &--2 {
-            padding-left: 10rem;
+            padding-left: 7rem;
+
+            @media only screen and (max-width: 70em) { // 1120px   1rem = 8px
+                padding-left: 3.25rem;
+             }
+
+            @media only screen and (max-width: 50em) { //  800px  1rem = 6px
+                padding-left: 6rem;
+            }
         }
     }
 
     &__resume {
         margin-top: 5rem;
         background-color: $accent-orange;
-        color: $bg-color;
+        color: $primary-color;
         width: 12rem;
         text-align: center;
         padding: 1rem;
@@ -65,17 +114,231 @@
     }
 }
 .headshot {
-    grid-column: 2 / -1;
-    background-image: linear-gradient(transparent 60%, $bg-color 95%, $bg-color),
-                        linear-gradient(to right, transparent 80%, $bg-color), 
-                        linear-gradient(to left, transparent 90%, $bg-color), 
-                        url(../../../public/images/_headshot.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-blend-mode:screen;
-    width: 75%;
+
+    width: fit-content;
     margin: 0 auto;
+    
+    &__img {
+        align-self: flex-end;
+        justify-self: flex-end;
+        background-image: url(../../../public/images/_headshot.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top -35px;
+        height: 50rem;
+        width: 55rem;
+
+        @media only screen and (max-width: 62.5em) { // 1120px   1rem = 8px
+            width: 55rem;
+            height: 60rem;
+         }
+
+        @media only screen and (max-width: 50em) { //  800px  1rem = 6px
+            height: 70rem;
+            width: 67rem;
+        }
+
+
+       
+    }
+
+    &__gradient {
+       
+        background-image: linear-gradient(transparent 70%, $primary-color 98%, $primary-color),
+        linear-gradient(to right, transparent 80%, $primary-color), 
+        linear-gradient(to left, transparent 90%, $primary-color);
+        height: 100%;
+        background-blend-mode:screen;
+    }
 }
 
 
+// @import '../../theme.scss';
+
+// .about {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+
+//     border: 1px solid red;
+
+//     @media only screen and (max-width: 81.25em) {
+//         justify-content: center;
+//     }
+
+//     @media only screen and (max-width: 62.5em) {
+//         position: relative;
+//         height: 100%;
+//     }
+
+//     @media only screen and (max-width: 50em) {
+//         flex-direction: column;
+//         justify-content: flex-start;
+//     }
+
+// }
+
+// .intro {
+
+//     padding: 5rem;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     border: 1px solid red;
+
+//     @media only screen and (max-width: 62.5em) { //  904px  1rem = 6px
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         margin-left: 5rem;
+//         margin-top: 5rem;
+//         width: 60%;
+//     }
+
+//     @media only screen and (max-width: 50em) {
+//         position: relative;
+//         margin: 0;
+//         align-self: flex-start;
+//         width: 100%;;
+//     }
+
+//     & > * {
+//         margin: .5rem;
+//     }
+
+//     &__greeting {
+//         font-size: 3rem;
+//         @media only screen and (max-width: 70em) {
+//             font-size: 3.5rem;
+//         }
+//         @media only screen and (max-width: 62.5em) { //  904px  1rem = 6px
+//             font-size: 4.5rem;
+//         }
+//     }
+
+//     &__name {
+//         font-size: 5rem;
+//         @media only screen and (max-width: 62.5em) { //  904px  1rem = 6px
+//             font-size: 6rem;
+//         }
+//     }
+
+//     &__role {
+//         font-size: 3.5rem;
+//         font-weight: 300;
+//         color: $accent-blue;
+
+//         @media only screen and (max-width: 75em) {
+//             font-size: 3rem;
+//         }
+
+//         @media only screen and (max-width: 70em) {
+//             font-size: 3.75rem;
+//         }
+
+//         @media only screen and (max-width: 62.5em) { //  904px  1rem = 6px
+//             font-size: 4.5rem;
+//         }
+
+//         > span {
+//             display: block;
+//         }
+
+//         &--1{
+//             padding-left: 5rem;
+//             @media only screen and (max-width: 81.25em) {
+//                 padding-left: 2rem;
+//             }
+//             @media only screen and (max-width: 71em) {
+//                 padding-left: 1.5rem;
+//             }
+//         }
+
+//         &--2 {
+//             padding-left: 10rem;
+//             @media only screen and (max-width: 81.25em) {
+//                 padding-left: 6rem;
+//             }
+
+//             @media only screen and (max-width: 71em) {
+//                 padding-left: 4rem;
+//             }
+//         }
+//     }
+
+//     &__resume {
+//         margin-top: 5rem;
+//         background-color: $accent-orange;
+//         color: $primary-color;
+//         width: 12rem;
+//         text-align: center;
+//         padding: 1rem;
+//         font-size: 2rem;
+//         border-radius: 3px;
+//         box-shadow: 0 3px 5px rgba(0,0,0,.6);
+//         transform: scale(1) translate(0,0);
+//         transition: .3s all;
+//         text-transform: uppercase;
+//         font-weight: bold;
+//         letter-spacing: 2px;
+//         cursor: pointer;
+
+//         &:hover {
+//             transform: scale(1.1) translate(0,0);
+//         }
+
+//         &:active {
+//             transform: scale(1) translate(-5px, -5px);
+//             box-shadow: none;
+//         }
+
+//         @media only screen and (max-width: 62.5em) { //  904px  1rem = 6px
+//             font-size: 3rem;
+//             width: 16rem;
+//         }
+//     }
+// }
+// .headshot {
+    
+//     &__img {
+//         align-self: flex-end;
+//         justify-self: flex-end;
+//         border: 1px solid red;
+//         background-image: url(../../../public/images/_headshot.png);
+//         background-repeat: no-repeat;
+//         background-size: cover;
+//         background-position: center top -50px;
+//         height: 60rem;
+//         width: 60rem;
+//         @media only screen and (max-width: 70em) {
+//             height: 65rem;
+//             width: 65rem;
+//         }
+//         @media only screen and (max-width: 62.5em) { //  904px  1rem = 6px
+//             height: 75rem;
+//             width: 75rem;
+//             margin-right: 6rem;
+//             position: absolute;
+//             bottom: 0;
+//             right: 0;
+//             z-index: -1;
+//         }
+
+//         @media only screen and (max-width: 50em) {
+//             position: relative;
+//             margin-right: 0;
+//             margin-top: -8rem;
+//             background-position: center top -35px;
+//         }
+    
+//     }
+
+//     &__gradient {
+       
+//         background-image: linear-gradient(transparent 70%, $primary-color 95%, $primary-color),
+//         linear-gradient(to right, transparent 80%, $primary-color), 
+//         linear-gradient(to left, transparent 90%, $primary-color);
+//         height: 100%;
+//         background-blend-mode:screen;
+//     }
+// }
