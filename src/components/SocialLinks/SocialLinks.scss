@@ -1,0 +1,45 @@
+@import '../../theme.scss';
+
+.social {
+
+    grid-area: social;
+    
+
+    &__links {
+        display: flex;
+        height: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+    }
+
+    &__icon {
+        fill: $accent-blue;
+        height: 4rem;
+        width: 4rem;
+        margin: 0 2rem;
+    }
+
+
+}
+
+@media only screen and (max-width: 50em) {
+
+    .social {
+        
+        background-color: rgb(50,48,63);
+
+        &__links {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+    
+        &__link {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            justify-items: center;
+            align-items: center;
+        }
+    }
+}

@@ -8,50 +8,54 @@
  box-sizing: inherit;
 }
 
-body {
-  height: 100%;
-  width: 100%;
+html {  
+  font-size: 62.5%; // 1rem = 10px 
 }
 
-html {
- font-size: 62.5%; // 1rem = 10px
- background-color: $primary-color;
+ body {
+  position: relative;
+  background-color: $primary-color;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+}
 
+// ------------------ APP Layouts ----------------------------------
 
- @media only screen and (max-width: 62.5em) { // 1000px   1rem = 8px
-    font-size: 50%;
- }
+// Desktop grid layout > 800px (50em)
+.App {
+  height: 100vh;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 10vh 80vh 10vh;
 
- @media only screen and (max-width: 50em) { //  800px  1rem = 6px
-  font-size: 37.5%;
- }
-
- @media only screen and (max-width: 25em) { //  400px  1rem = 4px
-  font-size: 25%;
- }
-
+  grid-template-areas: "nav nav social"
+                        "page page page"
+                        "page page page";
 
 }
 
+
+// Mobile and Tablet grid layout | 50em == 800px
+// Styles apply upto and including 800px wide viewport
+// Grid def include social links at bottom - move to top on large screens.
+@media only screen and (max-width: 50em) {
+    .App {
+      grid-template-areas: "nav nav nav"
+                            "page page page"
+                            "social social social"
+    } 
+}
+
+//-----------------------------------------------------------
+
+
+// Global styles 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.App {
- height: 100vh;
- box-sizing: border-box;
- width: 1300px;
- margin: 0 auto;
- font-family: 'Roboto', sans-serif;
- display: flex;
- flex-direction: column;
- justify-content: space-between;
-
- @media only screen and (max-width: 81.25em) {
-    width: 100%;
- }
-
 }
 
 .page {
@@ -69,13 +73,14 @@ a {
   
 .fade-in {
   animation-name: fadeIn;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards; 
-  animation-delay: .5s;
+  animation-delay: .75s;
 }
 
 .scale-icon {
+  display: block;
   transform: scale(1);
   transition: all .2s;
   cursor: pointer;
