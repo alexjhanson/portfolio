@@ -12,7 +12,7 @@ export default function About(props) {
                         <span className="intro__role intro__role--1">Software Engineer </span>
                         <span className="intro__role intro__role--2"> & Full Stack Web Developer</span>
                     </h2>
-                    { props.mobile ? null :  <div className="intro__resume">resume</div> }
+                    { props.mobile ? null :  <div className="intro__resume animated-btn">resume</div> }
                 </div>
             </section>
             <div className="headshot">

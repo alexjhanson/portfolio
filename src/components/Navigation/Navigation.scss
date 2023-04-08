@@ -15,6 +15,7 @@
             height: 100%;
             display: flex;
             align-items: center;
+            margin: 0 .5rem;
         }
     }
 
@@ -38,7 +39,7 @@
         &:hover {
             background-color: $accent-orange;
             color: $primary-color;
-            transform: scale(1.15);
+            transform: scale(1.12);
         } 
     }
 }
@@ -64,6 +65,7 @@
 
             & li {
                 display: block;
+                margin: 0 
             }
         }
 

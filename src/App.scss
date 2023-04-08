@@ -94,3 +94,23 @@ a {
       transform: scale(1);
   }
 }
+
+.animated-btn {
+  border-radius: 3px;
+  box-shadow: 0 3px 5px rgba(0,0,0,.6);
+  transform: scale(1) translate(0,0);
+  transition: .3s all;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  &:hover {
+      transform: scale(1.1) translate(0,0);
+  }
+
+  &:active {
+      transform: scale(1) translate(-5px, -5px);
+      box-shadow: none;
+  }
+}

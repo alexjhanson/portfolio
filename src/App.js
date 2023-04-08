@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import About from './pages/About/About';
 import Projects from './pages/Projects/Projects';
 import Music from './pages/Music/Music';
+import EmailForm from './pages/EmailForm/EmailForm';
 import Navigation  from './components/Navigation/Navigation';
 import SocialLinks from './components/SocialLinks/SocialLinks';
 import { useEffect, useState } from 'react';
@@ -32,9 +33,9 @@ export default function App() {
         <Route path="/" element={<Navigate to='/about'/>}/>
         <Route path="/about" element={<About mobile={mobile}/>}/>
         <Route path ="/projects" element={<Projects mobile={mobile}/>}/>
-        <Route path ="/music" element={<Music mobile={mobile}/>}/>
+        <Route path ="/music" element={<Music/>}/>
+        <Route path ="/contact" element={<EmailForm/>}/>
       </Routes>
-     
       <SocialLinks mobile={mobile}/>
     </div>
   );
