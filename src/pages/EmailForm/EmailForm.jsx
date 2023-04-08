@@ -24,7 +24,7 @@ export default function EmailForm(props) {
             body: JSON.stringify({...payload})
         })
         .then(res => {
-            consoole.log(`${res.status}: ${res}`);
+            console.log(`${res.status}: ${res}`);
         })
      }
 
