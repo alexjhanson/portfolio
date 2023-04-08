@@ -98,23 +98,23 @@
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
             & > * {
-                margin: 1vw 0;
+                margin: .75vw 0;
             }
         }
     
         &__greeting {
-            font-size: 3.5vw;
+            font-size: 4.5vw;
         }
 
         &__name {
-            font-size: 7vw;
+            font-size: 8.5vw;
         }
 
         &__role {
-            font-size: 4.5vw;
+            font-size: 5vw;
             color: $accent-blue;
             &--1 {
-                padding-left: 4vw;
+                padding-left: 4.5vw;
             }
 
             &--2 {
