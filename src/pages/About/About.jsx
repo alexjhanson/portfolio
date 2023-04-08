@@ -12,7 +12,14 @@ export default function About(props) {
                         <span className="intro__role intro__role--1">Software Engineer </span>
                         <span className="intro__role intro__role--2"> & Full Stack Web Developer</span>
                     </h2>
-                    { props.mobile ? null :  <div className="intro__resume animated-btn">resume</div> }
+                    { props.mobile ? 
+                        null :  
+                        <button 
+                            className="intro__resume animated-btn"
+                            onClick={(e) => {props.handleResumeClick(e.clientX, e.clientY)}}
+                        >
+                        resume
+                        </button> } 
                 </div>
             </section>
             <div className="headshot">

@@ -1,0 +1,40 @@
+@import '../../theme.scss';
+
+.resume-dialog {
+    opacity: 0;
+    width: 30rem;
+    position: absolute;
+    padding: 2rem;
+    border: 1px solid $accent-orange;
+    background-color: $primary-color;
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow: 3px 5px 5px rgba(0,0,0,.6);
+
+    &__message {
+        font-size: 2rem;
+        margin: 1rem;
+    }
+
+    &__btn-container {
+        display:flex;
+        justify-content: center;
+    }
+
+    &__btn {
+        margin: 2rem 1rem;
+        background-color: $accent-orange;
+        border: none;
+        color: $primary-color;
+        text-align: center;
+        width: 8rem;
+        padding: 1rem;
+        font-size: 2rem;
+    }
+}
+
+// mobile styles 
+
+// top: 50%;
+// left: 50%;
+// transform: translate(-50%, -50%);
