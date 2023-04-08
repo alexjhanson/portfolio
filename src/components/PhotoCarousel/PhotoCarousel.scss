@@ -1,26 +1,43 @@
+@import '../../theme.scss';
 
-.item-title {
-    text-align: center;
-    font-size: 3rem;
-
-}
-
-.photo-viewer {
-
+.carousel {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 4rem;
+    width: 100%;
+    height: 100%;
 
+    &__item-title {
+        font-size: 3rem;
+        margin: 3rem 0;
+    }
 
-    &__main-img {
-        width: 40rem;
-        height: 30rem;
+    &__image-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__image-container {
+        width: 45vh;
+        height: 45vh;
+    }
+
+    &__image {
+        height: 100%;
+        width: 100%;
         border-radius: 5px;
     }
 
-    &__photo-toggles {
+    &__selector {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    &__toggles {
         display: flex;
+        grid-column: 2/3;
 
     }
 
@@ -48,18 +65,55 @@
         }
     }
 
-}
+    &__live-link {
+        display: block;
+        background-color: $accent-orange;
+        color: $primary-color;
+        width: 12rem;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.75rem;
+        border-radius: 3px;
+        box-shadow: 0 3px 5px rgba(0,0,0,.6);
+        transform: scale(1) translate(0,0);
+        transition: .3s all;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        cursor: pointer;
+        margin-top: -5rem;
+        margin-left: 60rem;
 
-.item-selector {
-   
-    &-left-icon, &-right-icon {
-        width: 5rem;
-        height: 4rem;
-        margin: 0 5rem;
+        &:hover {
+            transform: scale(1.1) translate(0,0);
+        }
+
+        &:active {
+            transform: scale(1) translate(-5px, -5px);
+            box-shadow: none;
+        }       
     }
 }
 
-.carousel-flex {
-    display: flex;
-    align-items: center;
+
+@media only screen and (max-width: 50em) {
+
+    .carousel {
+
+        &__item-title {
+            font-size: 5.5vw;
+            margin: 10vw 0;
+        }
+
+        &__image-container {
+            width: 60vw;
+            height: 60vw;
+        }
+
+        &__selector {
+            height: 8vw;
+            width: 8vw;
+        }
+    }
+
 }

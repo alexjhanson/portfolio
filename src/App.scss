@@ -35,6 +35,8 @@ html {
                         "page page page"
                         "page page page";
 
+ 
+
 }
 
 
@@ -60,6 +62,7 @@ a {
 
 .page {
   opacity: 0;
+  grid-area: page;
 }
 
 @keyframes fadeIn {

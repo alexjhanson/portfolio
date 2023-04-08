@@ -63,34 +63,35 @@ export default function PhotoCarousel(props) {
     }
    
     return (
-        <div>
-            <h1 className="item-title">{state.currentItem.title}</h1>
-            <div className="photo-viewer">
-                <div className="carousel-flex">
-                    <svg onClick={handleLeftClick} className="scale-icon item-selector-left-icon">
-                        <use xlinkHref="sprite.svg#icon-previous2" />
-                    </svg>
+        <div className="carousel">
+            <h1 className="carousel__item-title">{state.currentItem.title}</h1>
+            <div className="carousel__image-row">
+                <svg onClick={handleLeftClick} className="scale-icon carousel__selector carousel__selector--left">
+                    <use xlinkHref="sprite.svg#icon-previous2" />
+                </svg>
+                <div className="carousel__image-container">
                     <img src={`${state.currentItem.photos.url}-${state.photoIndex}.${state.currentItem.photos.fileType}`} 
                         alt="application screen shot" 
-                        className="photo-viewer__main-img" 
+                        className="carousel__image" 
                     />
-                    <svg onClick={handleRightClick} className="scale-icon item-selector-right-icon">
-                        <use xlinkHref="sprite.svg#icon-next2" />
-                    </svg>
                 </div>
-                <div className="photo-viewer__photo-toggles">
-                {
-                    new Array(state.currentItem.photos.count).fill().map((e,idx) => {
-                        return <div className={`photo-viewer__toggle ${state.photoIndex === idx + 1 ? 'photo-viewer__toggle--selected' : ''}`}
-                                    style={idx + 1 === state.photoIndex ? {transform: 'scale(1.20)', backgroundColor: 'rgb(55,85,241)'} : null} 
-                                    data-index={idx + 1} 
-                                    key={`photo-${idx+1}`}
-                                    onClick={(e) => handleDotClick(e)}
-                                >
-                                </div>})
-                }
-                </div>
+                <svg onClick={handleRightClick} className="scale-icon carousel__selector carousel__selector--right">
+                    <use xlinkHref="sprite.svg#icon-next2" />
+                </svg>
             </div>
+            <div className="carousel__toggles">
+            {
+                new Array(state.currentItem.photos.count).fill().map((e,idx) => {
+                    return <div className={`carousel__toggle ${state.photoIndex === idx + 1 ? 'carousel__toggle--selected' : ''}`}
+                                style={idx + 1 === state.photoIndex ? {transform: 'scale(1.20)', backgroundColor: 'rgb(55,85,241)'} : null} 
+                                data-index={idx + 1} 
+                                key={`photo-${idx+1}`}
+                                onClick={(e) => handleDotClick(e)}
+                            >
+                            </div>})
+            }
+            </div>
+            {!props.mobile && state.currentItem.link.active ? <a className='carousel__live-link' target="_blank" rel="noreferrer" href={state.currentItem.link.url}>Live Link</a>: null}
             <props.Description currentItem={state.currentItem} />
         </div>
     )

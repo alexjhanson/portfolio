@@ -4,43 +4,52 @@
     grid-area: nav;
 
     &__links {
+        display: block;
         height: 100%;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         list-style: none;
+
+        & li {
+            height: 100%;
+        }
     }
 
     &__link {
+       
+        display: inline-block;
         color: $accent-orange;
-        font-weight: bold;
         text-transform: uppercase;
         font-size: 3rem;
         letter-spacing: 3px;
-        margin: 1rem;
         padding: 1rem 1.5rem;
         border-radius: 3px;
+        margin: 1rem .5rem;
+        transform: scale(1);
+        transition: all .2s;
 
         &:last-child {
-            margin-right: 2.5vw
+            margin-right:0
         }
 
-        @media only screen and(min-width: calc(50em + 1px)) {
-            &:hover {
-                background-color: $accent-orange;
-                color: $primary-color;
-            }
-
-            &:hover {
-                background-color: $accent-orange;
-                color: $primary-color;
-            }
-            
-            margin: 1rem .5rem;
-        }
+        &:hover {
+            background-color: $accent-orange;
+            color: $primary-color;
+            transform: scale(1.15);
+        } 
     }
 }
 
+.active-nav-link {
+    background-color: $accent-orange;
+    color: $primary-color;
+    transform: scale(1);
+
+    &:hover {
+        transform: scale(1);
+    }
+}
 
 // Mobile and Tablet styles.
 @media only screen and (max-width: 50em) {
@@ -77,6 +86,12 @@
                         linear-gradient(to right, transparent 95%, darken($accent-orange, 10%) 98%, darken($accent-orange, 15%) 99%),
                         linear-gradient(to left, transparent 95%, darken($accent-orange, 10%) 98%, darken($accent-orange, 15%) 99%),
                         linear-gradient(to top, transparent 88%, darken($accent-orange, 10%) 95%, darken($accent-orange, 15%) 99%); 
+ 
+            &:hover {
+                background-color: $accent-orange;
+                color: $primary-color;
+                transform: scale(1);
+            } 
         }
     }
 }

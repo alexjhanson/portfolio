@@ -28,14 +28,15 @@ export default function MobileSocial(props) {
                         </svg>
                     </NavLink>
                 </li>
-                {props.mobile ?   <li className="social__link">
-                                <a href="https://github.com/alexjhanson?tab=repositories" target="_blank" rel="noreferrer">
-                                    <svg className="github-icon scale-icon social__icon">
-                                        <use xlinkHref="sprite.svg#icon-profile" />
-                                    </svg>
-                                </a>
-                            </li>
-                            : null
+                {props.mobile ?   
+                    <li className="social__link">
+                        <a href="https://github.com/alexjhanson?tab=repositories" target="_blank" rel="noreferrer">
+                            <svg className="github-icon scale-icon social__icon">
+                                <use xlinkHref="sprite.svg#icon-profile" />
+                            </svg>
+                        </a>
+                    </li>
+                    : null
                 }
             </ul>
         </div>

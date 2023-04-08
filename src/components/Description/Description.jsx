@@ -10,7 +10,7 @@ export default function Description(props) {
         <article className="project-detail">
             <hr className="project-detail__line-rule" />
             <div className="project-detail__text-container">
-                 <p className="project-detail__description">{description}</p>
+                <div className="project-detail__description">{description}</div>
                 <div className="project-detail__tools">
                     <h2>Frameworks / Libraries</h2>
                     <ul>
@@ -33,3 +33,4 @@ export default function Description(props) {
         </article>
     )
 }
+

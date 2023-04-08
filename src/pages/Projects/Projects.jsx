@@ -9,9 +9,9 @@ export default function Projects(props) {
 
     return (
         <main className="page projects fade-in">
-            <div className="project-container">
-                <PhotoCarousel items={PROJECTS} Description={Description}/>
-            </div>
+            <PhotoCarousel items={PROJECTS} Description={Description} mobile={props.mobile}/>
         </main>
     );
 }
+
+

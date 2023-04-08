@@ -13,11 +13,18 @@
         list-style: none;
     }
 
+    &__link {
+        margin: 0 1rem;
+
+        &:last-child {
+            margin-right: 3rem;
+        }
+    }
+
     &__icon {
         fill: $accent-blue;
         height: 4rem;
         width: 4rem;
-        margin: 0 2rem;
     }
 
 
