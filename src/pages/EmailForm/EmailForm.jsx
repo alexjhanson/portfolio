@@ -14,6 +14,7 @@ export default function EmailForm(props) {
     }
 
     function handleSend() {
+        console.log('sending email...')
         let payload = {...state};
         fetch(`https://alexhanson.biz/.netlify/functions/sendemail`, {
             method: 'POST',
@@ -22,8 +23,10 @@ export default function EmailForm(props) {
             },
             body: JSON.stringify({...payload})
         })
-        .then(res => res.json());
-        }
+        .then(res => {
+            consoole.log(`${res.status}: ${res}`);
+        })
+     }
 
     return (
         
