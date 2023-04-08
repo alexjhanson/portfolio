@@ -42,7 +42,7 @@ export default function EmailForm(props) {
                     <input name="subject" type="text" value={state.subject} onChange={e => {handleChange(e)}}/>
                 </label>
                 <textarea name="message" cols="30" rows="10" value={state.message} onChange={e => {handleChange(e)}}></textarea>
-                <button className="animated-btn" onClick={e => handleSend}>SEND</button>
+                <button className="animated-btn" onClick={handleSend}>SEND</button>
             </form>
         </div>
     );
