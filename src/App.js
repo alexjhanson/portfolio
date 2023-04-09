@@ -69,7 +69,7 @@ export default function App() {
         <Route path ="/music" element={<Music/>}/>
         <Route path ="/contact" element={<EmailForm/>}/>
       </Routes>
-      <SocialLinks mobile={state.mobile}/>
+      <SocialLinks mobile={state.mobile} handleResumeClick={handleResumeClick}/>
       <ResumeDialog resume={state.resume} handleCloseResumeDialog={handleCloseResumeDialog}/>
     </div>
   );

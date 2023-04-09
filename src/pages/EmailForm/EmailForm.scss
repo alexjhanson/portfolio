@@ -2,128 +2,201 @@
 
 .email {
 
-    position: relative;
+    overflow: scroll;
 
-    &__result {
-        position: absolute;
-        width: 30%;
-        top: 20%;
-        left: 50%;
-        transform: translateX(-50%);
-        border: 1px solid $accent-orange;
-        border-radius: 2px;
-        z-index: 1;
+    &__form-wrapper {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        width: 85%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 2rem;
+    }
 
-        & h1 {
-            color: $accent-blue;
-            letter-spacing: 2px;
-            font-size: 4rem;
-            margin-bottom: 2rem;
-        }
+    &__hero {
+        background-image: url(../../../public/images/charlesdeluvio-AT5vuPoi8vc-unsplash.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
 
-        & p {
-            color: $accent-blue;
-        }
-
+    &__form-container {
+        position: relative;
+        height: 100%;
+        background-color: rgb(22,26,20);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
     }
 
     &__form {
-        width: 60%;
-        height: 90%;
-        padding: 5rem;
-        margin: 3rem auto;
+
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: radial-gradient(circle at center, $accent-blue, transparent);
+        
+        padding: 2rem 4rem;
+
+        & > * {
+            display: block;
+            width: 100%;
+        }
 
         & h1 {
-            color: $primary-color;
-            letter-spacing: 2px;
             font-size: 4rem;
-            margin-bottom: 2rem;
+            letter-spacing: 1.2px;
+            margin: 3rem 0;
+            color: $primary-color;
         }
 
         & label {
-            width: 100%;
-            background-color: $accent-orange;
-            display: flex;
+            
             margin: 1rem 0;
-        }
+            display: flex;
 
-        & span {
-            font-size: 2rem;
-            padding: 1rem;
-            width: 12rem;
-            font-weight: bold;
-            color: $primary-color;
-            text-transform: uppercase;
-        }
-
-        & input {
-            flex-grow: 1;
-            font-size: 2rem;
-            padding-left: 1rem;
+            & span {
+                font-weight: bold;
+                padding: 1rem;
+                width: 10rem;
+                font-size: 2rem;
+                color: $primary-color;
+                background-color: $accent-orange;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+            
+            & input {
+                flex-grow: 1;
+                font-size: 2rem;
+                padding: 1rem;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
         }
 
         & textarea {
-            width: 100%;
+            height: 30rem;
+            margin-top:1rem;
             padding: 1rem;
             font-size: 2rem;
-            margin-top: 2rem;
+            border-radius: 5px;
         }
 
         & button {
-            padding: 1rem;
+            margin: 1.5rem 0;
+            width: fit-content;
             font-size: 2rem;
-            margin-top: 2rem;
+            padding: 1rem 1.5rem;
             align-self: flex-end;
+            border: none;
+            border-radius: 5px;
             background-color: $accent-orange;
             color: $primary-color;
-            border: $accent-blue;
-            border-radius: 5px;
         }
-    }  
-} 
+    }
+}
+
+@media only screen and (max-width: 70em) {
+
+    .email {
+
+        &__form-wrapper {
+            width: 70%;
+            grid-template-columns: 1fr;
+            align-items: flex-end;
+        }
+
+        &__hero {
+            background-color: rgb(27,31,25);
+            background-position: center top  30%;
+            border-radius: 5px;
+            height: 100%;
+            grid-column: 1 / 1;
+            grid-row:  1 /  1;
+        }
+
+        &__form-container {
+            background: none;
+            height: 70%;
+            grid-column: 1 / 1;
+            grid-row:  1 /  1;
+        }
+
+        &__form {
+
+            & h1 {
+                font-size: 3rem;
+                margin: 0;
+                margin-bottom: 2rem;
+            }
+
+            & textarea {
+                height: 20rem;
+            }
+        }
+    }
+}
+
+
 
 @media only screen and (max-width: 50em) {
 
-    .email__form {
-        width: 90vw;
-        padding: 5vw;
-        margin: 3vw auto;
+    .email {
 
-        & h1 {
-            font-size: 5.5vw;
-            margin-bottom: 3vw;
+        &__form-wrapper {
+            padding: 10px;
+            width: 90vw;
+            
         }
 
-        & label {
-            margin: 2vw 0;
+        &__form-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        & span {
-            font-size: 2.5vw;
-            padding: 2vw;
-            width: 15vw;
-        }
+        &__form {
+            
+            padding: 2vw 4vw;
 
-        & input {
-            font-size: 3vw;
-            padding-left: 1vw;
-        }
-    
-        & textarea {
-            padding: 1vw;
-            font-size: 3vw;
-            margin-top: 2vw;
-        }
-    
-        & button {
-            padding: 1vw;
-            font-size: 2.5vw;
-            margin-top: 2vw;
+            & h1 {
+                font-size: 7vw;
+                padding: 3vw 0;
+                margin: 2vw 0;
+                width: fit-content;
+                background-color: rgba(22,26,20, .6);
+            }
+
+            & label {
+            
+                margin: 2vw 0;
+
+                & span {
+                    display: grid;
+                    align-items: center;
+                    width: 20vw;
+                    font-size: 4.5vw;
+                }
+                
+                & input {
+                    font-size: 4.5vw;
+                    padding: 1.5vw;
+                }
+            }
+
+            & textarea {
+                height: 60vw;
+                margin-top:2vw;
+                padding: 1.5vw;
+                font-size: 4.5vw;
+            }
+
+            & button {
+                margin: 4vw 0;
+                width: fit-content;
+                font-size: 5vw;
+                padding: 2vw 2.5vw;
+                border: none;
+            }
         }
     }
 }

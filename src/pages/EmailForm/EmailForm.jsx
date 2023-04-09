@@ -1,5 +1,9 @@
-import { useState } from 'react';
 import './EmailForm.scss'
+
+import Loading from '../../components/Sending/Loading'
+import Dialog from './Dialog/Dialog';
+
+import { useState } from 'react';
 
 export default function EmailForm(props) {
 
@@ -9,7 +13,10 @@ export default function EmailForm(props) {
         message: '',
         dialog: false,
         sending: false,
-        result: null,
+        result: {
+            h1: 'Email sent successfully!',
+            p: 'thanks for reaching out, i\'ll get back with you as soon as I can'
+        },
     });
 
     function handleChange(e) {
@@ -40,6 +47,7 @@ export default function EmailForm(props) {
                     h1: 'Your message was sent successfully!',
                     p: "Thanks for reaching out, i'll get back to you soon."
                 }
+                tmp.from = tmp.subject = tmp.message = '';
                 
             } else {
                 tmp.result = {
@@ -47,48 +55,46 @@ export default function EmailForm(props) {
                     p: ""
                 }
             }
-            dialogBox();
+
+            setState(tmp);
         })
      }
 
-     function dialogBox() {
-        setTimeout(() => {
-            console.log('clearing dialog');
-            let tmp ={...state};
-            tmp.dialog = false;
-            setState(tmp);
-        }, 4000)
+     function closeDialog() {
+        let tmp = {...state}
+        tmp.dialog = false;
+
+        setState(tmp);
      }
 
     return (
-        
-        <div className="page email fade-in">
-            {state.sending ?
-               <div className="sending">
-                sending
-               </div>
-                :
-                <div className="email__form" onSubmit={e => e.preventDefault()}>
-                    <h1>Let's Connect!</h1>
-                    <label>
-                        <span>From</span>
-                        <input name="from" type="text" value={state.from} onChange={e => {handleChange(e)}}/>
-                    </label>
-                    <label>
-                        <span>Subject</span>
-                        <input name="subject" type="text" value={state.subject} onChange={e => {handleChange(e)}}/>
-                    </label>
-                    <textarea name="message" cols="30" rows="10" value={state.message} onChange={e => {handleChange(e)}}></textarea>
-                    <button className="animated-btn" onClick={handleSend}>SEND</button>
-                </div>
-            }
-            {   state.dialog ?
-                 <div className="result">
-                    <h1 className="result__status">{state.result.h1}</h1>
-                    <p className="result__message">{state.result.p}</p>
-                </div>
-                : null
-            }
+        <div className="email page fade-in">
+            <div className="email__form-wrapper">
+                <div className="email__hero"></div>
+                {state.sending ?
+                    <Loading item="Sending Email....." />
+                    :
+                    <div className="email__form-container">
+                        <div className="email__form" onSubmit={e => e.preventDefault()}>
+                            <h1>Let's Connect!</h1>
+                            <label>
+                                <span>From</span>
+                                <input name="from" type="text" value={state.from} onChange={e => {handleChange(e)}}/>
+                            </label>
+                            <label>
+                                <span>Subject</span>
+                                <input name="subject" type="text" value={state.subject} onChange={e => {handleChange(e)}}/>
+                            </label>
+                            <textarea name="message" cols="30" rows="10" value={state.message} onChange={e => {handleChange(e)}}></textarea>
+                            <button className="animated-btn" onClick={handleSend}>SEND</button>
+                        </div>
+                        {   state.dialog ?
+                            <Dialog result={state.result} closeDialog={closeDialog}/>
+                            : null
+                        }
+                    </div>
+                }
+            </div>
         </div>
     );
 }
