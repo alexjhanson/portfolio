@@ -59,7 +59,7 @@ exports.handler = async function(event, context) {
                 statusCode: 200,
             };
         } catch(e) {
-            console.log('could not send email', error);
+            console.log('could not send email', e);
             return {
                 statusCode: 500,
             };
