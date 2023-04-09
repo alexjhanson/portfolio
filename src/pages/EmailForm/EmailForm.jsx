@@ -47,13 +47,17 @@ export default function EmailForm(props) {
                     p: ""
                 }
             }
-            const id = setTimeout(() => {
-                let tmp ={...state};
-                tmp.dialog = false;
-                clearInterval(id);
-                setState(tmp);
-            }, 3000)
+            dialogBox();
         })
+     }
+
+     function dialogBox() {
+        setTimeout(() => {
+            console.log('clearing dialog');
+            let tmp ={...state};
+            tmp.dialog = false;
+            setState(tmp);
+        }, 4000)
      }
 
     return (
@@ -64,7 +68,7 @@ export default function EmailForm(props) {
                 sending
                </div>
                 :
-                <form className="email__form" onSubmit={e => e.preventDefault()}>
+                <div className="email__form" onSubmit={e => e.preventDefault()}>
                     <h1>Let's Connect!</h1>
                     <label>
                         <span>From</span>
@@ -76,7 +80,7 @@ export default function EmailForm(props) {
                     </label>
                     <textarea name="message" cols="30" rows="10" value={state.message} onChange={e => {handleChange(e)}}></textarea>
                     <button className="animated-btn" onClick={handleSend}>SEND</button>
-                </form>
+                </div>
             }
             {   state.dialog ?
                  <div className="result">
