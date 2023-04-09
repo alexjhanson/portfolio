@@ -1,6 +1,6 @@
 import './EmailForm.scss'
 
-import Loading from '../../components/Sending/Loading'
+import Loading from '../../components/Loading/Loading'
 import Dialog from './Dialog/Dialog';
 
 import { useState } from 'react';
@@ -14,8 +14,8 @@ export default function EmailForm(props) {
         dialog: false,
         sending: false,
         result: {
-            h1: 'Email sent successfully!',
-            p: 'thanks for reaching out, i\'ll get back with you as soon as I can'
+            h1: '',
+            p: ''
         },
     });
 
