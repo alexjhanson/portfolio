@@ -1,5 +1,6 @@
 const sanitizeHtml = require('sanitize-html');
 const nodemailer = require('nodemailer');
+const {google} = require('googleapis')
 
 exports.handler = async function(event, context) {
 
@@ -20,40 +21,51 @@ exports.handler = async function(event, context) {
         };
     }
 
+    const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI);
+    oAuth2Client.setCredentials({refresh_token: process.env.REFRESH_TOKEN});
     console.log('attempting to send email');
 
     let { from, subject, message } = JSON.parse(event.body);
 
     message = sanitizeHtml(message)
 
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD,
-        },
-    });
+    async function sendMail() {
+        try {
+            const accessToken = await oAuth2Client.getAccessToken();
+            const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    type: 'OAuth2',
+                    user: process.env.USER,
+                    clientId: process.env.CLIENT_ID,
+                    clientSecret: process.env.CLIENT_SECRET,
+                    refreshToken: process.env.REFRESH_TOKEN,
+                    accessToken,
+                },
+            });
 
-    const mailOptions = {
-        from,
-        to: process.env.email,
-        subject,
-        text: message,
-    };
-    
-    try {
-    await transporter.sendMail(mailOptions);
-    console.log('email sent');
-    return {
-        statusCode: 200,
-        body: JSON.stringify({ message: 'Email sent successfully' }),
-    };
-    } catch (error) {
-        console.log('could not send email', error);
-    return {
-        statusCode: 500,
-        body: JSON.stringify({ message: 'Failed to send email' }),
-    };
+            const mailOptions = {
+                from,
+                to: process.env.EMAIL,
+                subject,
+                text: message,
+            };
+
+            await transporter.sendMail(mailOptions);
+
+            console.log('email sent');
+            
+            return {
+                statusCode: 200,
+            };
+        } catch(e) {
+            console.log('could not send email', error);
+            return {
+                statusCode: 500,
+            };
+        }
     }
 
-};
+    let result = await sendMail()
+    return result;
+}
