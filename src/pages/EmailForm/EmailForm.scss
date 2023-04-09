@@ -2,12 +2,17 @@
 
 .email {
 
+    position: relative;
+
     &__result {
+        position: absolute;
         width: 30%;
-        padding: 5rem;
-        margin: 5rem auto;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
         border: 1px solid $accent-orange;
         border-radius: 2px;
+        z-index: 1;
 
         & h1 {
             color: $accent-blue;

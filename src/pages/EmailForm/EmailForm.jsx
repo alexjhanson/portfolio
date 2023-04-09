@@ -60,7 +60,7 @@ export default function EmailForm(props) {
         
         <div className="page email fade-in">
             {state.sending ?
-               <div className="sening">
+               <div className="sending">
                 sending
                </div>
                 :
