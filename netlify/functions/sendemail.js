@@ -1,4 +1,4 @@
-const DOMPurify = require('dompurify');
+const sanitizeHtml = require('sanitize-html');
 const nodemailer = require('nodemailer');
 
 exports.handler = async function(event, context) {
@@ -24,7 +24,7 @@ exports.handler = async function(event, context) {
 
     let { from, subject, message } = JSON.parse(event.body);
 
-    message = DOMPurify.sanitize(message);
+    message = sanitizeHtml(message)
 
     const transporter = nodemailer.createTransport({
         service: 'gmail',
