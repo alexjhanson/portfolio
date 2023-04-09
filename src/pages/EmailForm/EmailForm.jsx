@@ -60,7 +60,9 @@ export default function EmailForm(props) {
         
         <div className="page email fade-in">
             {state.sending ?
-                <Sending />
+               <div className="sening">
+                sending
+               </div>
                 :
                 <form className="email__form" onSubmit={e => e.preventDefault()}>
                     <h1>Let's Connect!</h1>
