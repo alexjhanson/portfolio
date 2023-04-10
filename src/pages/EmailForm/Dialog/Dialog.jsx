@@ -11,7 +11,11 @@ export default function Dialog(props) {
     return (
         <div className="email__result">
             <h1 className="email__result__status">{props.result.h1}</h1>
-            <p className="email__result__message">{props.result.p}</p>
+            { 
+                props.result.p.map((p, i) => {
+                    return <p key={`para-${i}`}>{p}</p>
+                })
+            }
         </div>
     )
 }

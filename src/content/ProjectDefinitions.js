@@ -11,7 +11,7 @@ const PROJECTS  = [ {
     },
     description: `The PayDay application is a Full-Stack REACT app. It demonstrates the ability
                   to create UIs- stateful or not- using either a function or class component. I implemented custom
-                  Hooks, used advanced CSS late features, custom events, and many more features.  `,
+                  Hooks, used advanced CSS layout features, custom events, and full CRUD for certain datat entities.  `,
     techStack: ['MERN'],
     languages: ['JavaScript', 'HTML', 'CSS']
 
